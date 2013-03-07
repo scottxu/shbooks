@@ -1,3 +1,5 @@
-app name: second-hand books /n
-author: scottxu /n
-email: xubingchao@gmail.com
+
+#  second-hand books 
+#  author: scottxu 
+#  email: xubingchao@gmail.com
+
