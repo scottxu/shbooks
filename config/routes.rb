@@ -6,15 +6,7 @@ Shbooks::Application.routes.draw do
   root :to => 'home#index'
   resources :products
 
-  #users
-  devise_for :users
-    # as :user do
-      # get "sign_in", :to => "devise/sessions#new"
-      # get 'signup' => 'registrations#new', :as => :new_user_registration
-      # get 'login' => 'sessions#new', :as => :new_user_session
-      # post 'login' => 'sessions#create', :as => :user_session
-      # delete 'logout' => 'devise/sessions#destroy', :as => :destroy_user_session
-  # end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

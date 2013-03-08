@@ -31,7 +31,10 @@ gem 'jquery-rails'
 # 用户系统
 gem 'devise', '2.0.0'
 gem 'mysql2', '~> 0.3.1'
-gem "twitter-bootstrap-rails"
+
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
