@@ -5,3 +5,4 @@ public/uploads/*
 *.orig
 *.swp
 config/database.yml
+.sqlite3

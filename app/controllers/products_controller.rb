@@ -1,6 +1,7 @@
 # coding: utf-8
 class ProductsController < ApplicationController
   before_filter :authenticate_user!, :except=>[:index,:show]
+  before_filter :require_admin, :except => [:show]
   # GET /products
   # GET /products.json
   def index
@@ -83,4 +84,12 @@ class ProductsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private 
+    def require_admin
+      unless current_user&&current_user.admin
+        flash[:error] = "You must be logged in with admin user"
+        redirect_to root_path 
+      end
+    end
 end

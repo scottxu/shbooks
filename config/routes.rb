@@ -1,4 +1,8 @@
 Shbooks::Application.routes.draw do
+
+  resources :carts
+
+
   get "home/index"
 
   devise_for :users

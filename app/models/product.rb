@@ -2,9 +2,7 @@
 require 'carrierwave/orm/activerecord'
 
 class Product < ActiveRecord::Base
-  belongs_to :user
-
-
+  has_many :carts
   attr_accessible :description, :image, :title, :price, :user_id
 
   validates_presence_of :description, :image, :title
