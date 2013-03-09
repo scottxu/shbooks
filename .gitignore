@@ -4,3 +4,4 @@ public/uploads/*
 *.log
 *.orig
 *.swp
+config/database.yml
