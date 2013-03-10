@@ -4,6 +4,7 @@
 			<li class="span3">
 				<%= link_to (image_tag product.image, :class=>"img-polaroid"), product_path(product)%>
 				<h4><%= product.title %></h4>
+				<h4><%= product.price %></h4>
 				<p><%= product.description %></p>
 				<% if user_signed_in? %>
 				  <%= link_to "add to cart", "javascript:void(0);",:class=>"add_to_cart btn btn-success btn-mini", :id=>"#{product.id}" %>
