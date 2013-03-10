@@ -5,13 +5,18 @@
 				<%= link_to (image_tag product.image, :class=>"img-polaroid"), product_path(product)%>
 				<h4><%= product.title %></h4>
 				<p><%= product.description %></p>
-				<%= link_to "add to cart", "javascript:void(0);",:class=>"add_to_cart btn btn-success btn-mini", :id=>"#{product.id}" %>
+				<% if user_signed_in? %>
+				  <%= link_to "add to cart", "javascript:void(0);",:class=>"add_to_cart btn btn-success btn-mini", :id=>"#{product.id}" %>
+				<% else %>
+				  <%= link_to "add to cart", new_user_session_path,:class=>"add_to_cart btn btn-success btn-mini" %>
+				<% end %>
+				
 			</li>
 		<% end %>
 	</ul>
 <% end %>
 <script type="text/javascript">
-		var user_id="<%=current_user.id if current_user %>"
+	var user_id="<%=current_user.id if current_user %>"
 	$("#carts_list .add_to_cart").click(function(){
 		var id = this.id;
 		var url = "carts"
@@ -25,6 +30,10 @@
 	    	if(res.status=="success")
 	    	{
 	    		alert("success");
+	    	}
+	    	else
+	    	{
+	    		alert("faild");
 	    	}
 	    }
 		});

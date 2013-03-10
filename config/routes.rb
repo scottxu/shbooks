@@ -1,16 +1,11 @@
 Shbooks::Application.routes.draw do
 
-  resources :carts
-
-
-  get "home/index"
-
-  devise_for :users
-
   root :to => 'home#index'
   resources :products
+  devise_for :users
+  get "home/index"
 
-
+  resources :carts
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

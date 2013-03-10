@@ -1,8 +1,9 @@
 class CartsController < ApplicationController
+  before_filter :authenticate_user!
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = Cart.where(:user_id=>current_user.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -40,6 +41,12 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
+    if !user_signed_in?
+      respond_to do |format|
+        format.json { render :json =>{:status=>"faild"} }
+      end
+      return
+    end
     @cart = Cart.new(params[:cart])
 
     respond_to do |format|
